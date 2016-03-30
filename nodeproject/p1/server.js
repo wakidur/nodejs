@@ -132,8 +132,9 @@ exports.start = start;
 
 // main script 
 
+/*
 var http = require("http"), 
-	url = require("url");
+    url = require("url");
 function start( route ) {
 	function onRequest ( request, response ) {
 		var pathname = url.parse( request.url ).pathname;
@@ -148,9 +149,55 @@ function start( route ) {
 }
 exports.start = start;
 
-
+*/
 /*
  * 29/03/2016
  */
 //Execution in the kingdom of verbs
+
+/*
+ * 29/03/2016
+ */
+var http = require("http"),
+    url  = require("url");
+function start( route, handle ) {
+    function onRequest( request, response ) {
+        var pathname = url.parse( request.url ).pathname;
+        console.log( "Request for " + pathname + "recevived." );
+        route( handle, pathname);
+        response.writeHead(200, {"Content-Type" : "text/plain"});
+        response.write("hello");
+        response.end();
+    }
+    http.createServer(onRequest).listen(8000);
+    console.log("server has started");
+}
+exports.start = start;
+
+
+//Making the request handlers respond
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
