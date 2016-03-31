@@ -158,6 +158,8 @@ exports.start = start;
 /*
  * 29/03/2016
  */
+
+/*
 var http = require("http"),
     url  = require("url");
 function start( route, handle ) {
@@ -173,13 +175,29 @@ function start( route, handle ) {
     console.log("server has started");
 }
 exports.start = start;
-
-
+*/
+/*
+ * 31/03/2016
+ */
 //Making the request handlers respond
 
 
 
-
+var http = require("http");
+var url = require("url");
+function start(route, handle) {
+    function onRequest(request, response) {
+        var pathname = url.parse(request.url).pathname,
+            content = route(handle, pathname);
+        console.log("Request for " + pathname + " received.");
+        response.writeHead(200, {"Content-Type": "text/plain"});
+        response.write(content);
+        response.end();
+    }
+    http.createServer(onRequest).listen(8888);
+    console.log("Server has started.");
+}
+module.exports.start = start;
 
 
 

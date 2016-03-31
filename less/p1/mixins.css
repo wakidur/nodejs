@@ -1,0 +1,105 @@
+/* 
+    Created on : Mar 30, 2016, 12:40:26 PM
+    Author     : wakidur
+*/
+/* =========Mixins============ */
+.bordered {
+  border-top: dotted 1px #000;
+  border-bottom: solid 1px #09c;
+}
+#menu a {
+  color: #09c;
+  border-top: dotted 1px #000;
+  border-bottom: solid 1px #09c;
+}
+.post a {
+  color: red;
+  border-top: dotted 1px #000;
+  border-bottom: solid 1px #09c;
+}
+/*
+  * You can mix-in class selectors and id selectors
+*/
+.a,
+#b {
+  color: red;
+}
+.mixin-class {
+  color: red;
+  /*
+        *these two statements do the same thing 
+        * .a();
+        * .a;
+    */
+}
+.mixin-id {
+  color: red;
+}
+/*
+    * Not Outputting the Mixin
+*/
+.my-mixin {
+  color: black;
+}
+.class {
+  color: black;
+  background-color: wheat;
+}
+/*
+    * Selectors in Mixins
+*/
+button:hover {
+  border: 1px solid red;
+}
+.my-hover-mixin-a:hover {
+  border: 1px solid red;
+}
+a:hover {
+  border: 1px solid red;
+}
+/*
+* Namespace
+*/
+/*#outer {
+    .inner {
+        color : red;
+    }
+}
+.c {
+    #outer > .inner;
+}*/
+/*#my-library{
+    .my-mixin{
+        color: black;
+    }
+}*/
+/*.class{
+    #my-library > .my-mixin();
+}*/
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.opacityy {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+fieldset[disabled] .btn {
+  cursor: not-allowed;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/*.size(@width; @height) {
+  width: @width;
+  height: @height;
+}
+.square(@size) {
+  .size(@size; @size);
+}*/
+/*.image { .size(400px; 300px); }
+.avatar { .square(48px); }*/

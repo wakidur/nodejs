@@ -1,0 +1,217 @@
+/* 
+    Created on : Mar 31, 2016, 12: 00:30 PM
+    Author     : wakidur
+*/
+/* As an extension to CSS, Less is not only backwords compatible with CSS, but the extra features it adds use existing  css syntex. This makes learning Less a breeze, and if in doubt, lests you fall back to vanilla css.*/
+/*
+ * Overview
+*/
+#header {
+  color: #6c94be;
+}
+/*
+    **Mixins
+*/
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+#menu a {
+  color: #111;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+.post a {
+  color: red;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+/*
+    ** Nested Rules
+*/
+/*we have the following CSS:*/
+#header {
+  color: block;
+}
+#header .navigation {
+  font-size: 18px;
+}
+#header .logo {
+  width: 300px;
+  height: 300px;
+  border: 1px solid red;
+}
+/*we can also write it this way*/
+#header {
+  color: black;
+}
+#header .navigation {
+  font-size: 18px;
+}
+#header .logo {
+  width: 300px;
+  height: 300px;
+  border: 1px solid red;
+}
+.clearfix {
+  display: block;
+  zoom: 1;
+}
+.clearfix:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/*
+   **Nested Directives and Bubbling
+*/
+@media screen {
+  .screen-color {
+    color: green;
+  }
+}
+@media screen and (min-width: 768px) {
+  .screen-color {
+    color: red;
+  }
+}
+@media tv {
+  .screen-color {
+    color: black;
+  }
+}
+#a {
+  color: blue;
+  padding: 2 2 2 2;
+}
+@font-face {
+  src: made-up-url;
+}
+@media (min-width: 0px) {
+  .kenburnsy {
+    color: green;
+  }
+}
+@media (min-width: 0px) and (max-width: 479px) {
+  .kenburnsy {
+    color: red;
+  }
+}
+@media (max-width: 480px) {
+  .kenburnsy {
+    height: 700px;
+  }
+}
+@media (max-width: 767px) {
+  .kenburnsy {
+    height: 700px;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .kenburnsy {
+    color: green;
+  }
+}
+@media (min-width: 993px) and (max-width: 1199px) {
+  .kenburnsy {
+    color: green;
+  }
+}
+@media (min-width: 1200px) {
+  .kenburnsy {
+    color: green;
+  }
+}
+@media (min-width: 1400px) {
+  .kenburnsy {
+    color: green;
+  }
+}
+@media (max-width: 1480px) {
+  .kenburnsy {
+    color: yellow;
+  }
+}
+@media (max-width: 1900px) {
+  .kenburnsy {
+    color: rad;
+  }
+}
+/*
+    *Operations
+*/
+/*@conversion : 5px + 10px;
+@conversion : 2 - 3px -px;*/
+/*@incompatible-units: 2 + 5px - 6cm;*/
+/*@base: 5%;*/
+/*@filler : @base * 2;
+@other : @base + @filler;
+@basic: 2cm * 3mm;*/
+/*
+    **Functions
+*/
+.class {
+  width: 50%;
+  color: #f6430f;
+  background-color: #f8b38d;
+}
+/**/
+/*
+    **Namespaces and Accessors
+*/
+#bundle .button {
+  display: block;
+  border: 1px solid black;
+  background-color: grey;
+}
+#bundle .button:hover {
+  background-color: white;
+}
+#bundle .tab {
+  background-color: red;
+}
+#bundle .citation {
+  background-color: yellowgreen;
+}
+/*
+    **Scope
+*/
+#page #header {
+  color: white;
+}
+#page #header {
+  color: green;
+}
+/*--------------------*/
+/*
+.size(@width; @height) {
+  width: @width;
+  height: @height;
+}
+.square(@size) {
+  .size(@size; @size);
+}
+
+
+
+@var: red;
+
+#page {
+  @var: white;
+  #header {
+    color: @var; // white
+  }
+}
+
+
+@var: gray;
+
+#page {
+  #header {
+    color: @var; // white
+  }
+  @var: black;
+}*/

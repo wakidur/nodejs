@@ -1,0 +1,159 @@
+
+/* 
+    Created on : Mar 30, 2016, 12:40:26 PM
+    Author     : wakidur
+*/
+/* =========Mixins============ */
+
+.hide-text() {
+  font: ~"0/0" a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+// New mixin to use as of v3.0.1
+.text-hide() {
+  .hide-text();
+}
+
+.bordered{
+    border-top: dotted 1px #000;
+    border-bottom: solid 1px #09c;
+}
+
+#menu a {
+    color: #09c;
+    .bordered;
+}
+
+.post a {
+    color: red;
+    .bordered;
+}
+
+/*
+  * You can mix-in class selectors and id selectors
+*/
+.a, #b {
+    color : red;
+}
+.mixin-class {
+    .a(); 
+    /*
+        *these two statements do the same thing 
+        * .a();
+        * .a;
+    */
+}
+.mixin-id {
+    #b();
+}
+
+/*
+    * Not Outputting the Mixin
+*/
+.my-mixin {
+    color : black;
+}
+.my-other-mixin() {
+    background-color: wheat;
+}
+.class{
+    .my-mixin;
+    .my-other-mixin;
+}
+
+
+/*
+    * Selectors in Mixins
+*/
+.my-hover-mixin(){
+    &:hover{
+        border : 1px solid red;
+    }
+}
+button {
+    .my-hover-mixin();
+}
+
+
+.my-hover-mixin-a{
+    &:hover{
+        border : 1px solid red;
+    }
+}
+a {
+    .my-hover-mixin-a;
+}
+
+
+/*
+* Namespace
+*/
+/*#outer {
+    .inner {
+        color : red;
+    }
+}
+.c {
+    #outer > .inner;
+}*/
+
+
+/*#my-library{
+    .my-mixin{
+        color: black;
+    }
+}*/
+// which can be used like this
+/*.class{
+    #my-library > .my-mixin();
+}*/
+
+// Deprecated as of v3.0.1 (has been removed in v4)
+.hide-text() {
+  font: ~"0/0" a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+// New mixin to use as of v3.0.1
+.text-hide {
+  .hide-text();
+}
+
+
+.opacity(@opacity) {
+  opacity: @opacity;
+  // IE8 filter
+  @opacity-ie: (@opacity * 100);
+  filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
+
+.opacityy{
+    .opacity(0.5);
+}
+fieldset[disabled] .btn {
+  cursor: not-allowed;
+  .opacity(.65);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  
+}
+// Mixins
+/*.size(@width; @height) {
+  width: @width;
+  height: @height;
+}
+.square(@size) {
+  .size(@size; @size);
+}*/
+
+// Usage
+/*.image { .size(400px; 300px); }
+.avatar { .square(48px); }*/
