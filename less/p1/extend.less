@@ -1,0 +1,82 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 2, 2016, 3:04:13 PM
+    Author     : wakidur
+*/
+
+/*
+ *2/04/2016 
+ *Extend 
+*/
+//Extend is a Less pseudo-class which merges the selector it is put on with ones that match what it references.
+
+/*Extend Syntax*/
+.a:extend(.b){}
+
+.a{
+    &:extend(.b);
+}
+
+// the above blocks does the same thing
+
+.c:extend(.d all) {
+    //extend all instances of ".d" e.g. ".x.d", or ".d.x";
+}
+.c:extend(.d){
+    // extends only instances where the selector will be output as just
+}
+/*It can contain one or more classes to extend, separated by commas.*/
+/*.e:extend(.f){};*/
+/*.e:extend(.g){};*/
+// the about an the below do the same thing 
+/*.e:extend(.f,g);*/
+
+nav ul {
+    &:extend(.inline);
+    background-color: blue;
+}
+
+nav ul li{
+    &:extend(.inline);
+    background-color: greenyellow;
+}
+
+header h1:extend(.inline) {
+    background-color: brown;
+}
+
+.banner-outer .caption .holder form button[type="submit"] {
+    &:hover{
+        color:#fff;
+        background-color: #F16623 !important;
+    }
+    &:extend(.inline);
+    float:left;
+    width:100%;
+    height:45px;
+}
+.inline{
+    color: red;
+    
+}
+
+.browse-job-section{
+    background-color: gold;
+    &:extend(.axvbv,.vfd,.lk);
+}
+
+
+
+.axvbv{
+    background-color: #65578D;
+}
+.vfd{
+    color: yellow;
+}
+.lk{
+    line-height: #250;
+}

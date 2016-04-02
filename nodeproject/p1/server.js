@@ -200,6 +200,11 @@ function start(route, handle) {
 module.exports.start = start;
 
 
+/*
+ * 31/03/2016
+ * Responding request handlers with non-blocking operations;
+ */
+
 
 
 
