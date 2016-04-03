@@ -1,0 +1,72 @@
+/* 
+    Created on : Apr 3, 2016, 4:32:02 PM
+    Author     : wakidur
+*/
+/*-----------------Parametric Mixins---------------*/
+#header {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+.button {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+.boxRadius {
+  width: 500px;
+  height: 500px;
+  display: block;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.pre {
+  text-wrap: wrap;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: brack-word;
+}
+/*Mixins with Multiple Parameters*/
+/*
+.mixin( @color ){
+    color-1 : @color;
+}
+.mixin(@color; @padding: 2){
+    color-2: @color; 
+    padding-2: @padding; 
+}
+.mixin(@color; @padding; @margin:2){
+    color-3: @color;
+    padding-3: @padding;
+    margin: @margin;
+}
+.some div {
+    .mixin(#000);
+}*/
+.class1 {
+  color: #33acfe;
+  margin: 20px;
+  padding: 20px;
+}
+.class2 {
+  color: #efca44;
+  margin: 10px;
+  padding: 40px;
+}
+.class3 {
+  color: #09c;
+  margin: 10px;
+  padding: 30px;
+}
+/*The @arguments Variable*/
+.big-block {
+  -webkit-box-shadow: 2px 5px 1px #000;
+  -moz-box-shadow: 2px 5px 1px #000;
+  box-shadow: 2px 5px 1px #000;
+}
+
+/*Pattern-matching*/

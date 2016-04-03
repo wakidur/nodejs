@@ -182,7 +182,7 @@ exports.start = start;
 //Making the request handlers respond
 
 
-
+/*
 var http = require("http");
 var url = require("url");
 function start(route, handle) {
@@ -199,16 +199,31 @@ function start(route, handle) {
 }
 module.exports.start = start;
 
+*/
 
 /*
  * 31/03/2016
- * Responding request handlers with non-blocking operations;
+
  */
 
 
 
-
-
+/*
+ * 03/04/2016
+ *  * Responding request handlers with non-blocking operations;
+ */
+var http = require( "http" ), 
+    url =  require( "url" );
+function start( route , handle ){
+    function onRequest( request, response ){
+        var pathname = url.parse(request.url).pathname;
+        console.log("Request for" + pathname + "received.");
+        route(handle, pathname, response);
+    }
+    http.createServer(onRequest).listen(8000);
+    console.log("server has started");
+}
+module.exports.start = start();
 
 
 
