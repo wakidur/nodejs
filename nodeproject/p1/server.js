@@ -212,6 +212,7 @@ module.exports.start = start;
  * 03/04/2016
  *  * Responding request handlers with non-blocking operations;
  */
+/*
 var http = require( "http" ), 
     url =  require( "url" );
 function start( route , handle ){
@@ -225,9 +226,35 @@ function start( route , handle ){
 }
 module.exports.start = start();
 
+*/
 
+/*
+ * 04/04/2016
+ * 
+ **/
 
+var http = require("http");
+var url = require("url");
+function start(route, handle) {
+    function onRequest(request, response) {
+        var postData = "";
+        var pathname = url.parse(request.url).pathname;
+        console.log("Request for " + pathname + " received.");
+        request.setEncoding("utf8");
+        request.addListener("data", function (postDataChunk) {
+            postData += postDataChunk;
+            console.log("Received POST data chunk '" +
+                    postDataChunk + "'.");
+        });
 
+        request.addListener("end", function () {
+            route(handle, pathname, response, postData);
+        });
+    }
+    http.createServer(onRequest).listen(8888);
+    console.log("Server has started.");
+}
+exports.start = start;
 
 
 

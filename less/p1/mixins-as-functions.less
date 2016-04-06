@@ -1,0 +1,38 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 4, 2016, 12:52:18 PM
+    Author     : wakidur
+*/
+.mixin() {
+    @width: 100%;
+    @height: 200px;
+}
+.otherClass {
+    @display: block;
+    @line-hieght: 200px;
+}
+
+
+.caller{
+    .mixin();
+    width: @width;
+    height: @height;
+}
+.onlyClass{
+    .otherClass;
+    display: @display;
+    line-height: @line-hieght;
+}
+
+.average( @x, @y) {
+    @avarage: ((@x+@y)/2)
+}
+
+div {
+    .average(10px , 50px);
+    padding: @avarage;
+}
