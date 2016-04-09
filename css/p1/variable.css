@@ -1,0 +1,17 @@
+/* 
+    Created on : Mar 30, 2016, 12:15:30 PM
+    Author     : wakidur
+*/
+/*
+ * Variable
+*/
+#header {
+  color: #6c94be;
+}
+/*
+    * Mixins
+*/
+.border {
+  border-top: dotted 1px #000;
+  border-bottom: solid 1px #09c;
+}

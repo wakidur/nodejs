@@ -12,5 +12,6 @@
     "contributors": [],
     "dependencies": {
     	"jquery" : "",
+    	"express" : ""
     }
 }

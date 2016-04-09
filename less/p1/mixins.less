@@ -1,0 +1,138 @@
+/* 
+    Created on : April 03, 2016, 12:40:26 PM
+    Author     : wakidur
+*/
+/* =========Mixins============ */
+
+// I can mix-in class selector and id selectors.
+
+.a, #b {
+    color: red;
+}
+
+.mixin-class{
+    .a();
+}
+.mixin-id{
+    #b();
+}
+
+
+/*Not Outputting the Mixin*/
+//If you want to create a mixin but you do not want that mixin to be output, you can put parentheses after it.
+
+.my-mixin{
+    color: black;
+}
+.my-other-mixin(){
+    background-color: white;
+}
+.class-in{
+    .my-mixin;
+    .my-other-mixin;
+}
+
+.main-contain(){
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.container {
+  .main-contain();
+}
+.container-fluid {
+  .main-contain();
+}
+
+.container{
+    @media (min-width: 768px) {
+        width: 750px;
+    }
+    @media (min-width: 992px) {
+        width: 970px;
+    }
+    @media (min-width: 1200px) {
+        width: 1170px;
+    }
+}
+
+/*Selectors in Mixins*/
+/*mixins can contain more than just properties, they cna contain selector too.*/
+
+.new() {
+    &:hover{
+        border : 1px solid red;
+    }
+}
+
+button  {
+    .new();
+}
+
+
+// Namespaces
+#outer {
+    .inner{
+        color: red;
+    }
+}
+
+// all do the same thing 
+.c{
+    #outer > .inner;
+}
+.c{
+    #outer > .inner();
+}
+.c{
+    #outer .inner;
+}
+.c{
+    #outer.inner();
+}
+.c{
+    #outer.inner();
+}
+
+/*Guarded Namespaces*/
+/*If namespace have a guard, mixins defined by it are used only if guard condition returns true. Namespace guard is evaluated exactly the same way as guard on mixin, so next two minxins work the same way*/
+/*
+#namespace when (@mode = huge ) {
+    .mixin(){
+        /*  /
+    }
+}
+
+#namespace{
+    .mixin() when (@mode = huge ) {
+        /* dfd fd /
+    }
+}
+
+
+#sp_1 when (default()) {
+    #sp_2 when (default()){
+        .mixin() when not (default()){
+            /*dfdf/
+        }
+    }
+}
+*/
+
+/*The !important keyword*/
+
+.foo( @bg: #f5f5f5, @color: #900 ){
+   background-color: @bg;
+   color: @color;
+}
+
+.unipportant{
+    .foo();
+}
+.important{
+    .foo() !important;
+}
+.important{
+    .foo !important;
+}

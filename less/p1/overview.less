@@ -1,0 +1,255 @@
+
+/* 
+    Created on : Mar 31, 2016, 12: 00:30 PM
+    Author     : wakidur
+*/
+/* As an extension to CSS, Less is not only backwords compatible with CSS, but the extra features it adds use existing  css syntex. This makes learning Less a breeze, and if in doubt, lests you fall back to vanilla css.*/
+/*
+ * Overview
+*/
+@nice-blue : #5b83ad;
+@light-blie : @nice-blue + #111; 
+
+#header{
+    color: @light-blie;
+}
+
+/*
+    **Mixins
+*/
+.bordered{
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+
+#menu a {
+    color : #111;
+    .bordered;
+}
+.post a {
+    color: red;
+    .bordered;
+}
+
+
+/*
+    ** Nested Rules
+*/
+/*we have the following CSS:*/
+#header{
+    color: block;
+}
+#header .navigation{
+    font-size: 18px;
+}
+#header .logo{
+    width: 300px;
+    height: 300px;
+    border: 1px solid red;
+}
+/*we can also write it this way*/
+#header{
+    color: black;
+    .navigation{
+        font-size: 18px;
+    }
+    .logo{
+        width: 300px;
+        height: 300px;
+        border: 1px solid red;
+        
+    }
+}
+
+.clearfix{
+    display: block;
+    zoom : 1;
+    &:after{
+        content: " ";
+        display: block;
+        font-size: 0;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+}
+
+/*
+   **Nested Directives and Bubbling
+*/
+
+.screen-color{
+    @media screen{
+        color: green;
+        @media (min-width: 768px) {
+            color : red;
+        }
+    }
+    @media tv {
+        color : black;
+    }
+}
+
+
+#a {
+    color :blue;
+    @font-face {
+        src : made-up-url;
+        
+    }
+   padding: 2 2 2 2;
+}
+
+.kenburnsy {
+    @media (min-width:0px){
+        color: green;
+        @media (max-width: 479px) {
+            color: red;
+        }
+    }
+    @media (max-width:480px){
+        height: 700px;
+    }
+    @media (max-width:767px){
+        height: 700px;
+    }
+    @media (min-width:768px) and (max-width:992px){
+        color: green;
+    }
+    @media (min-width:993px) and (max-width:1199px){
+        color: green;
+    }
+    @media (min-width:1200px){
+        color: green;
+    }
+    @media (min-width:1400px){
+        color: green;
+    }
+    @media (max-width:1480px){
+        color: yellow;
+    }
+    @media (max-width:1900px){
+        color:rad;
+    }
+}
+
+/*
+    *Operations
+*/
+// number are converted into the same units
+/*@conversion : 5px + 10px;
+@conversion : 2 - 3px -px;*/
+
+// conversion is impossible
+/*@incompatible-units: 2 + 5px - 6cm;*/
+
+// example with variables 
+/*@base: 5%;*/
+/*@filler : @base * 2;
+@other : @base + @filler;
+@basic: 2cm * 3mm;*/
+
+
+
+/*
+    **Functions
+*/
+@base: #f04615;
+@width: 0.5;
+
+.class {
+  width: percentage(@width); // returns `50%`
+  color: saturate(@base, 5%);
+  background-color: spin(lighten(@base, 25%), 8);
+}
+
+/**/
+/*
+    **Namespaces and Accessors
+*/
+#bundle {
+    .button{
+        display: block;
+        border: 1px solid black;
+        background-color: grey;
+    &:hover{
+        background-color: white;
+        }
+    }
+    .tab{
+        background-color: red;
+    }
+    .citation{
+        background-color: yellowgreen;
+    }
+}
+
+/*
+    **Scope
+*/
+@var : red;
+#page {
+    @var : white;
+    #header{
+        color: @var;
+    }
+}
+
+@var: yellow;
+
+#page {
+  #header {
+    color: @var; 
+  }
+  @var: green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------------------*/
+
+.size(@width; @height) {
+  width: @width;
+  height: @height;
+}
+.square(@size) {
+  .size(@size; @size);
+}
+
+
+
+@var: red;
+
+#page {
+  @var: white;
+  #header {
+    color: @var; 
+  }
+}
+
+
+@var: gray;
+
+#page {
+  #header {
+    color: @var; // white
+  }
+  @var: black;
+}

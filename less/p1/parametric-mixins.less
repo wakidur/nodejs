@@ -1,0 +1,88 @@
+
+/* 
+    Created on : Apr 3, 2016, 4:32:02 PM
+    Author     : wakidur
+*/
+
+/*-----------------Parametric Mixins---------------*/
+
+.border-radius(@radius){
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -o-border-radius: @radius;
+    border-radius: @radius;
+}
+#header{
+    .border-radius(4px);
+}
+.button {
+    .border-radius(6px);
+}
+
+.border-radiusAll(@radiouss:5px){
+    -webkit-border-radius: @radiouss;
+    -moz-border-radius: @radiouss;
+    -o-border-radius: @radiouss;
+    border-radius: @radiouss;
+}
+.boxRadius{
+    width: 500px;
+    height: 500px;
+    display: block;
+    .border-radiusAll;
+}
+
+
+.wrap(){
+    text-wrap: wrap;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+    word-wrap: brack-word;
+}
+.pre{
+    .wrap
+}
+
+/*Mixins with Multiple Parameters*/
+/*
+.mixin( @color ){
+    color-1 : @color;
+}
+.mixin(@color; @padding: 2){
+    color-2: @color; 
+    padding-2: @padding; 
+}
+.mixin(@color; @padding; @margin:2){
+    color-3: @color;
+    padding-3: @padding;
+    margin: @margin;
+}
+.some div {
+    .mixin(#000);
+}*/
+
+.mixin(@color: black; @margin: 10px; @padding: 20px) {
+  color: @color;
+  margin: @margin;
+  padding: @padding;
+}
+.class1 {
+  .mixin(@margin: 20px; @color: #33acfe);
+}
+.class2 {
+  .mixin(#efca44; @padding: 40px);
+}
+.class3 {
+  .mixin(#09c; @padding: 30px);
+}
+
+/*The @arguments Variable*/
+.box-shadow(@x:0; @y:0; @blur:1px; @color:#000){
+    -webkit-box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+    box-shadow: @arguments; 
+}
+
+.big-block{
+    .box-shadow(2px , 5px);
+}
