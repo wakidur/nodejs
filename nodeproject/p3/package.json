@@ -1,0 +1,26 @@
+{
+  "name": "expressjs_project",
+  "version": "0.0.1",
+  "description": "express and mongodb project using node.js ",
+  "main": "app.js",
+  "scripts": {
+    "test": "it is my first express project"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wakidur/nodejs.git"
+  },
+  "keywords": [
+    "1"
+  ],
+  "author": "Wakidur Rahman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wakidur/nodejs/issues"
+  },
+  "homepage": "https://github.com/wakidur/nodejs#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongodb" :"2.1.15"
+  }
+}
