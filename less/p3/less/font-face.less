@@ -1,0 +1,53 @@
+/*
+
+*/
+/* 
+    Created on : Apr 18, 2016, 3:16:48 PM
+    Author     : wakidur
+*/
+
+@font-link: "../fonts/";
+@family :"robotoregular";
+@filename-base: "Roboto-Regular-webfont";
+@weight:"normal";
+@style: "normal";
+@svgID: "robotoregular";
+
+
+.fontface(@family, @filename-base, @style, @weight, @svgID){
+    font-family: @family;
+    src:url('@{font-link}@{filename-base}.eot');
+    src:url('@{font-link}@{filename-base}.eot?#iefix') format('embedded-opentype'),
+        url('@{font-link}@{filename-base}.woff') format('woff'),
+        url('@{font-link}@{filename-base}.ttf') format('truetype'), 
+        url('@{font-link}@{filename-base}.svg#@{svgID}') format('svg');
+    font-weight: @weight;
+    font-style: @style;
+}
+@font-face {
+    .fontface(@family, @filename-base, @style, @weight, @svgID);
+    }
+
+    
+    
+    
+    
+    
+    
+    
+@fontname:"robotoregular";
+@fontfile : "Roboto-Regular-webfont";
+.fontface(@fontname, @fontfile) {
+        font-family: '@{fontname}';
+        src: url('../fonts/@{fontfile}-webfont.eot');
+        src: url('../fonts/@{fontfile}-webfont.eot?#iefix') format('embedded-opentype'),
+             url('../fonts/@{fontfile}-webfont.woff') format('woff'),
+             url('../fonts/@{fontfile}-webfont.ttf') format('truetype'),
+             url('../fonts/@{fontfile}-webfont.svg#@{fontname}') format('svg');
+        font-weight: normal;
+        font-style: normal;
+}
+
+@font-face {
+    .fontface(FontName1, FontFile1);
+}
